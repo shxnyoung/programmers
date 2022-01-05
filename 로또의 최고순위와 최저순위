@@ -1,0 +1,25 @@
+def solution(lottos, win_nums):
+    lottos.sort()
+    win_nums.sort()
+    correct_num = 0
+    for i in lottos:
+        for j in win_nums:
+            if i == j:
+                correct_num += 1
+                pass
+
+    num_zero = lottos.count(0)
+    
+    if num_zero == 6:
+        lowest_rank = 6 - correct_num
+        highest_rank = lowest_rank - num_zero + 1
+    elif num_zero == 0 and correct_num == 0:
+        lowest_rank = 6 - correct_num 
+        highest_rank = lowest_rank - num_zero
+        
+    else:
+        lowest_rank = 6 - correct_num + 1
+        highest_rank = lowest_rank - num_zero
+    
+    answer = [highest_rank, lowest_rank] #최고순위와 최저순위
+    return answer
