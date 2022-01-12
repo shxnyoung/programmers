@@ -1,0 +1,24 @@
+from itertools import combinations          # 중복허용(X), 순서의미(O) 인 조합을 import
+
+def isPrime(num):
+    if num==0 or num==1:
+        return False
+    sqrtN = (int)(num **(1/2))
+    for i in range(2, sqrtN+1):
+        if num%i == 0:
+            return False
+            break
+    return True
+        
+
+def solution(nums):
+    answer = 0
+    # 하나의 리스트에서 모든 조합을 계산을 해야 한다면, permutations, combinations을 사용
+    # 두개 이상의 리스트에서 모든 조합을 계산해야 한다면, product를 사용
+    cmb = list(combinations(nums,3))
+
+    for i in cmb:
+        if isPrime(sum(i)) == True:
+            answer += 1
+
+    return answer
