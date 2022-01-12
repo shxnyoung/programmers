@@ -1,0 +1,45 @@
+def solution(numbers, hand):
+    answer = ''
+    left_loc = 10
+    right_loc = 12
+    # right_loc = ''
+    for i in numbers:
+        if i == 1 or i == 4 or i == 7:
+            answer += 'L'
+            left_loc = i
+        elif i == 3 or i == 6 or i == 9:
+            answer += 'R'
+            right_loc = i
+            
+        else:
+            if i == 0:
+                i = 11
+                
+            #마지막 손의 위치와 2,5,8,0 원소간의 절대값 구하고 이를 3으로 나눈 몫과 나머지 더하면 키패드 상의 거리 
+            #거리가 가까운 손을 구해 L,R 정하고 같은 경우 hand 값을 활용
+            #왼손과 절대값
+            
+            abs_left = abs(i - left_loc)
+            abs_right = abs(i - right_loc)
+
+            if (abs_left//3 + abs_left%3) < (abs_right//3 + abs_right%3):
+                answer += 'L'
+                left_loc = i
+            elif (abs_left//3 + abs_left%3) > (abs_right//3 + abs_right%3):
+                answer += 'R'
+                right_loc = i
+            else:
+                if hand == 'left':
+                    answer += 'L'
+                    left_loc = i
+                else:
+                    answer += 'R'
+                    right_loc = i
+
+            
+            
+
+    
+    
+    
+    return answer
