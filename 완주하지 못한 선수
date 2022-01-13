@@ -1,0 +1,17 @@
+def solution(participant, completion):
+    # 빈 딕셔너리 d 생성
+    d = dict() #또는 d = {}
+    # participant가 completion보다 딱 한 명 더 많기 때문에
+    # 모든 participant의 요소들의 해시값을 다 더해서
+    # 모든 completion의 요소들의 해시값을 빼주면 
+    # 완주하지 못한 선수의 해시값만 남는다.
+    hashValue = 0
+    
+    # 참가자에 대한 딕셔너리 생성, 키를 해시값, 값을 이름으로
+    for p in participant:
+        d[hash(p)] = p
+        hashValue += hash(p)
+    # 완주자에 대한 딕셔너리 생성, 해시값 빼줌
+    for c in completion:
+        hashValue -= hash(c)
+    return d[hashValue]
