@@ -1,0 +1,21 @@
+def solution(n, lost, reserve):
+    answer = n
+
+    for i in lost:
+        if i in reserve:    #여벌 체육복 가져온 학생이 체육복 도난
+            lost.remove(i)
+            reserve.remove(i)
+    lost.sort()
+    reserve.sort()
+    for i in lost:
+        if i in reserve:
+            reserve.remove(i)
+        elif (i-1) in reserve:  #앞 번호 학생에게 빌림
+            reserve.remove(i-1)
+        elif (i+1) in reserve : #뒷 번호 학생에게 빌림
+            reserve.remove(i+1)
+
+        else:
+            answer -= 1
+
+    return answer
