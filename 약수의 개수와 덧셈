@@ -1,0 +1,23 @@
+def solution(left, right):
+    
+    d = {}
+    
+    answer = 0
+    for i in range(left, right + 1):
+        if i == 1:
+            d[hash(i)] = 1
+        else:
+            cnt = 2
+            for j in range(2 , i//2 + 1):
+                if i % j == 0:
+                    cnt += 1
+            d[hash(i)] = cnt
+        
+    print(d)
+    
+    for k,v in d.items():
+        if v % 2 == 0:
+            answer += k
+        else:
+            answer -= k
+    return answer
