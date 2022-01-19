@@ -7,15 +7,12 @@ def solution(N, stages):
 #실패율
     failureRate = {}
     for i in range(1,N+1):
-        rate = 0
-        for j in range(len(stages)):
-            if i == stages[j]:
-                rate += 1
-            if rate == 0:
-                failureRate[i] = 0
-            else:
-                failureRate[i] = rate/k
-        k -= rate
+        j = stages.count(i)
+        if j == 0:
+            failureRate[i] = 0
+        else:
+            failureRate[i] = j/k
+        k -= j
      
     #내림차순 정렬
     sfailureRate= sorted(failureRate.items(), key=operator.itemgetter(1), reverse=True)
