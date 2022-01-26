@@ -1,0 +1,13 @@
+def solution(n):
+    answer = 0
+    jb3 = []
+    while n != 0:
+        a = n % 3
+        jb3.append(a)
+        n = n//3
+        
+    l = len(jb3)-1
+    for i in jb3:
+        answer += i * (3**l)
+        l -= 1
+    return answer
