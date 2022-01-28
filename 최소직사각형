@@ -1,0 +1,18 @@
+def solution(sizes):
+    answer = 0
+    bigW = 0
+    bigL = 0
+    for i in sizes:
+        
+        # 큰 값을 항상 가로로
+        if i[0] < i[1]:
+            a = i[0]
+            i[0] = i[1]
+            i[1] = a
+        if i[0] > bigW:
+            bigW = i[0]
+        if i[1] > bigL:
+            bigL = i[1]
+            
+    answer = bigW * bigL
+    return answer
