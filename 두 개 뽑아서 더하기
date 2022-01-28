@@ -1,0 +1,15 @@
+def solution(numbers):
+    answer = []
+    numbers.sort()
+    print(numbers)
+    num = numbers.copy()
+    for i in numbers:
+        num.remove(i)
+        for j in num:
+            print(i,j)
+            if i+j in answer:
+                pass
+            else:
+                answer.append(i+j)
+    answer.sort()
+    return answer
