@@ -1,0 +1,12 @@
+def solution(s):
+    answer = ''
+    l = len(s)
+    mid = 0
+    if l % 2 == 1:
+        mid = l // 2
+        answer = s[mid]
+    else:
+        mid = l // 2
+        answer = s[mid-1 : mid+1]
+    
+    return answer
