@@ -1,0 +1,35 @@
+def solution(dartResult):
+    answer = 0
+    result = []
+    num = 0
+    
+    #점수 10 변경
+    dartResult = dartResult.replace("10", "A")
+    
+    for i in dartResult:
+        if i.isdigit():
+            num = int(i)
+        elif i == "A":
+            num = 10
+        elif i == "S":
+            num **= 1
+            result.append(num)
+        elif i == "D":
+            num **= 2
+            result.append(num)
+        elif i == "T":
+            num **= 3
+            result.append(num)
+        #배열 내에 넣은 후에 옵션 내용은 배열값에서 변경
+        elif i == "*":
+            if len(result) > 1:
+                result[-1] = result[-1] * 2
+                result[-2] = result[-2] * 2
+            else:
+                result[-1] = result[-1] * 2
+        elif i == "#":
+            result[-1] = -result[-1]
+    
+    answer = sum(result)
+    
+    return answer
