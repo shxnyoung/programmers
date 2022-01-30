@@ -1,0 +1,10 @@
+def solution(x):
+    arr = list(str(x))
+    arrsum = 0
+    for i in arr:
+        arrsum += int(i)
+    if x % arrsum == 0:
+        return True
+    else:
+        return False
+    
