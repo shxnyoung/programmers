@@ -1,0 +1,12 @@
+def solution(strings, n):
+    answer = []
+    nword = []
+    for i in strings:
+        nword.append(i[n] + i)
+    
+    nword.sort()
+     
+    for j in range(len(nword)):
+        answer.append(nword[j][1:]) 
+    
+    return answer
