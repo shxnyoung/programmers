@@ -1,0 +1,8 @@
+def solution(n):
+    answer = ''
+    m = list(str(n))
+    m.sort(reverse=True)
+    for i in m:
+        answer += i
+    answer = int(answer)
+    return answer
