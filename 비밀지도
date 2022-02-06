@@ -1,0 +1,19 @@
+def solution(n, arr1, arr2):
+    answer = []
+    
+    for i in range(n):
+        arr1[i] = str(bin(arr1[i]))[2:]
+        arr2[i] = str(bin(arr2[i]))[2:]
+        c = str(int(arr1[i]) + int(arr2[i]))
+        if len(c) < n:
+            c = '0'*(n-len(c)) + c
+        k = ''
+        for j in c:
+            if j == '0':
+                k += ' '
+            else:
+                k += "#"
+        answer.append(k)
+    
+    
+    return answer
