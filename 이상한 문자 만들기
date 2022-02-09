@@ -1,0 +1,16 @@
+def solution(s):
+    answer = ''
+    a = s.split(" ")
+    lst = []
+    for j in a:
+        letter = ''
+        for i in range(len(j)):
+            if i % 2 == 0:
+                letter += j[i].upper()
+            elif i % 2 == 1:
+                letter += j[i].lower()
+        lst.append(letter)
+    answer = " ".join(lst)   
+
+        
+    return answer
